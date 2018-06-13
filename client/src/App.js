@@ -2,12 +2,16 @@ import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import NoMatch from './components/NoMatch'
 import Home from './components/Home'
-import './App.css';
+import NavBar from './components/NavBar'
+import Menus from './components/Menus'
+
 
 const App = () => (
   <Fragment>
+    <NavBar />
     <Switch>
-      <Route exact Path="/" component={Home} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/menus" component={Menus} />
 
 
 
