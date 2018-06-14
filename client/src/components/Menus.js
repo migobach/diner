@@ -1,17 +1,42 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import MenuForm from './MenuForm'
 
 
 class Menus extends React.Component {
-  state = { menus: [] }
+  state = { menus: [], edit: false }
 
   componentDidMount() {
     axios.get('/api/menus')
       .then( ({ data }) => this.setState({ menus: data }) )
   }
 
-  render() {
+  toggleEdit = () => {
+    this.setState( state => {
+      return { edit: !state.edit }
+    })
+  }
+
+  submit = (menu) => {
+    debugger
+    const { menus } = this.state
+    axios.post('api/menus', { menu })
+    .then( res => 
+      this.setState({
+        menus: [res.data, ...menus],
+        edit: false
+      })
+    )
+  }
+
+
+
+  form() {
+    return <MenuForm submit={this.submit} {...this.state.menu} />
+  }
+
+  show() {
     const { menus } = this.state
     return (
       <Fragment>
@@ -30,6 +55,18 @@ class Menus extends React.Component {
     )
   }
 
+  render() {
+    const { edit } = this.state
+    return (
+      <div>
+        <h1>Menu Options</h1>
+        <button onClick={this.toggleEdit}>
+          { edit ? 'Hide' : 'Show' } Form
+        </button>
+        { edit ? this.form() : this.show() }
+      </div>  
+    )
+  }
 
 }
 
