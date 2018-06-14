@@ -8,13 +8,15 @@ const Home = () =>
 
   <table>
     <thead>
-      <tr>Day</tr>
-      <tr>Hours</tr>
+      <td>Day</td>
+      <td>Hours</td>
     </thead>
+    <tbody>
     <tr>
       <td>Monday</td>
       <td>Closed</td>
     </tr>
+    </tbody>
   </table>
 </Fragment>
 

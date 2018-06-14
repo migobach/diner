@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -11,13 +12,25 @@ class Menus extends React.Component {
   }
 
   render() {
-    // const{ menu: { meal }} = this.state 
+    const { menus } = this.state
     return (
-      <div>
-        <h2>test</h2>
-      </div>
+      <Fragment>
+      <h1>Menus</h1>
+      <ul>
+        { menus.map( m => 
+          <li key={m.id}>
+            <Link to={`/menus/${m.id}`}>
+              {m.meal}
+            </Link>
+          </li>
+        )
+      }
+    </ul>
+    </Fragment>
     )
   }
+
+
 }
 
 export default Menus;

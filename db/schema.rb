@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2018_06_13_214506) do
     t.string "title"
     t.string "description"
     t.float "price"
+    t.bigint "menu_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_dishes_on_menu_id"
   end
 
   create_table "menus", force: :cascade do |t|
@@ -29,4 +31,5 @@ ActiveRecord::Schema.define(version: 2018_06_13_214506) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "dishes", "menus"
 end

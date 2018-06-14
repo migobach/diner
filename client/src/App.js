@@ -4,6 +4,7 @@ import NoMatch from './components/NoMatch'
 import Home from './components/Home'
 import NavBar from './components/NavBar'
 import Menus from './components/Menus'
+import Dishes from './components/Dishes'
 
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/menus" component={Menus} />
+      <Route exact path="/menus/:id" component={Dishes} />
 
 
 
