@@ -16,7 +16,6 @@ class MenuForm extends React.Component {
   handleChange = (e) => {
     const { target: {name, value } } = e
     this.setState({ [name]: value })
-    debugger
   }
 
   render() {

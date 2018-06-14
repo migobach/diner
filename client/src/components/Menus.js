@@ -30,10 +30,8 @@ class Menus extends React.Component {
     )
   }
 
-
-
   form() {
-    return <MenuForm submit={this.submit} {...this.state.menu} />
+    return <MenuForm submit={this.submit} />
   }
 
   show() {

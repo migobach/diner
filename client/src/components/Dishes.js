@@ -22,7 +22,7 @@ render() {
       <h1>{ menuName }</h1>
       <ul>
         { dishes.map( d => 
-          <li key={d.id}>
+          <li key={d.id}> 
               <h2>{d.title}</h2>
               <p>{d.description}</p>
               <h4>${d.price}</h4>
